@@ -34993,7 +34993,7 @@ MonoBehaviour:
   detectionHeight: 0.5
   totalAngleNeeded: 1080
   sauceParticle: {fileID: 0}
-  resetHeight: -2
+  resetHeight: -0.5
 --- !u!1001 &1988170910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36626,7 +36626,7 @@ MonoBehaviour:
   detectionHeight: 0.5
   totalAngleNeeded: 1080
   sauceParticle: {fileID: 0}
-  resetHeight: -2
+  resetHeight: -0.5
 --- !u!1 &2126698375
 GameObject:
   m_ObjectHideFlags: 0
@@ -38541,6 +38541,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1306293754}
     m_Modifications:
+    - target: {fileID: 1803876940866928072, guid: a2afd3dcdb4869041aa021086bd9de08, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3046564095109200185, guid: a2afd3dcdb4869041aa021086bd9de08, type: 3}
       propertyPath: m_Name
       value: PizzaPepperoni
@@ -38584,6 +38588,14 @@ PrefabInstance:
     - target: {fileID: 4298174991187458519, guid: a2afd3dcdb4869041aa021086bd9de08, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -30.197
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938002907126279502, guid: a2afd3dcdb4869041aa021086bd9de08, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199461654500851675, guid: a2afd3dcdb4869041aa021086bd9de08, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
