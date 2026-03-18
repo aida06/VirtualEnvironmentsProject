@@ -6829,6 +6829,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 1355076828917746827, guid: 8e50162e559c59044a79eece0f7429fb, type: 3}
   spawnPoint: {fileID: 0}
   interactable: {fileID: 364635900}
+  networkSpawnManager: {fileID: 8839457145026391852}
 --- !u!114 &364635900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16796,6 +16797,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 496945586200974163, guid: 228084f93112a584eb9d63b1897a38aa, type: 3}
   spawnPoint: {fileID: 0}
   interactable: {fileID: 839788645}
+  networkSpawnManager: {fileID: 0}
 --- !u!114 &839788645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23609,6 +23611,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 3080998231645034487, guid: b87e3b48df24fe04d87c791dc97b3d9d, type: 3}
   spawnPoint: {fileID: 0}
   interactable: {fileID: 1234871759}
+  networkSpawnManager: {fileID: 0}
 --- !u!114 &1234871759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25219,6 +25222,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 5021398649498421249, guid: 2472fdc310db0e14bbdc8bc83d2fbe28, type: 3}
   spawnPoint: {fileID: 0}
   interactable: {fileID: 1343118637}
+  networkSpawnManager: {fileID: 0}
 --- !u!114 &1343118637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39193,6 +39197,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73369a530bd8253469d623a3ea6dcff9, type: 3}
+--- !u!114 &8839457145026391852 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1969530087210779678, guid: 73369a530bd8253469d623a3ea6dcff9, type: 3}
+  m_PrefabInstance: {fileID: 8839457145026391851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85a8236d1040c2b439f6933935477a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9164488894471803472
 PrefabInstance:
   m_ObjectHideFlags: 0
