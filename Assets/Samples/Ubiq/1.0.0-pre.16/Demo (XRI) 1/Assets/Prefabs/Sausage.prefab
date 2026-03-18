@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4262751527060551040}
   - component: {fileID: 6185649700857687739}
   - component: {fileID: -4896912234201316375}
+  - component: {fileID: 1752846524062801439}
   m_Layer: 0
   m_Name: Sausage
   m_TagString: Untagged
@@ -296,6 +297,23 @@ MonoBehaviour:
   tableTag: Table
   settleDelay: 0.15
   mainCollider: {fileID: 4595225801461742993}
+--- !u!114 &1752846524062801439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496945586200974163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0ce4a8bb32c2e4ba7757d7ae271cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkedGrabbable
+  sendInterval: 0.05
+  positionThreshold: 0.001
+  rotationThreshold: 0.5
+  positionLerpSpeed: 15
+  rotationLerpSpeed: 15
 --- !u!1 &2953423226899951233
 GameObject:
   m_ObjectHideFlags: 0

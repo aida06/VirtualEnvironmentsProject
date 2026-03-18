@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 704771690612275587}
   - component: {fileID: 5005002862962318579}
   - component: {fileID: -7461531799789036325}
+  - component: {fileID: 7634741977940348800}
   m_Layer: 0
   m_Name: SausageSliced
   m_TagString: Untagged
@@ -264,3 +265,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3086024498087997484, guid: 7e91e4bb93f9cc94ea347427dbcc50e6, type: 3}
+--- !u!114 &7634741977940348800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685354935545435214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0ce4a8bb32c2e4ba7757d7ae271cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkedGrabbable
+  sendInterval: 0.05
+  positionThreshold: 0.001
+  rotationThreshold: 0.5
+  positionLerpSpeed: 15
+  rotationLerpSpeed: 15
