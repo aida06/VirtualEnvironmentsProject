@@ -63,6 +63,8 @@ public class ItemBox : MonoBehaviour
             return null;
         }
 
+        Debug.Log($"{name}: Spawning prefab = {itemPrefab.name}");
+
         Vector3 spawnPosition = spawnPoint != null
             ? spawnPoint.position
             : transform.position + Vector3.up * 0.5f;
@@ -71,13 +73,18 @@ public class ItemBox : MonoBehaviour
             ? spawnPoint.rotation
             : Quaternion.identity;
 
-        // 先用 PeerScope，方便立刻拿到生成对象并设置位置
         GameObject spawned = networkSpawnManager.SpawnWithPeerScope(itemPrefab);
 
         if (spawned != null)
         {
             spawned.transform.position = spawnPosition;
             spawned.transform.rotation = spawnRotation;
+
+            var rollable = spawned.GetComponent<DoughBallRollable1>();
+            if (rollable != null)
+            {
+                rollable.SetNetworkSpawnManager(networkSpawnManager);
+            }
         }
 
         return spawned;
