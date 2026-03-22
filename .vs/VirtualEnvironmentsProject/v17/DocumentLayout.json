@@ -7,20 +7,12 @@
       "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\doughballrollable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|D:\\HelloUnity\\VirtualEnvironmentsProject\\assets\\scripts\\doughballrollable1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\doughballrollable1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|D:\\HelloUnity\\VirtualEnvironmentsProject\\assets\\scripts\\itembox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\itembox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|D:\\HelloUnity\\VirtualEnvironmentsProject\\assets\\samples\\ubiq\\1.0.0-pre.16\\demo (xri) 1\\scripts\\networkeddestroyable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\samples\\ubiq\\1.0.0-pre.16\\demo (xri) 1\\scripts\\networkeddestroyable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|D:\\HelloUnity\\VirtualEnvironmentsProject\\assets\\samples\\ubiq\\1.0.0-pre.16\\demo (xri) 1\\scripts\\networkedstateobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\samples\\ubiq\\1.0.0-pre.16\\demo (xri) 1\\scripts\\networkedstateobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|d:\\hellounity\\virtualenvironmentsproject\\assets\\scripts\\doughballplacement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\doughballplacement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,55 +22,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DoughBallRollable1.cs",
-              "DocumentMoniker": "D:\\HelloUnity\\VirtualEnvironmentsProject\\Assets\\Scripts\\DoughBallRollable1.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\DoughBallRollable1.cs",
-              "ToolTip": "D:\\HelloUnity\\VirtualEnvironmentsProject\\Assets\\Scripts\\DoughBallRollable1.cs",
-              "RelativeToolTip": "Assets\\Scripts\\DoughBallRollable1.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAAwGwAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-20T05:42:00.347Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ItemBox.cs",
-              "DocumentMoniker": "D:\\HelloUnity\\VirtualEnvironmentsProject\\Assets\\Scripts\\ItemBox.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ItemBox.cs",
-              "ToolTip": "D:\\HelloUnity\\VirtualEnvironmentsProject\\Assets\\Scripts\\ItemBox.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ItemBox.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAkwFMAAAAhAAAA",
+              "Title": "DoughBallPlacement.cs",
+              "DocumentMoniker": "D:\\HelloUnity\\VirtualEnvironmentsProject\\Assets\\Scripts\\DoughBallPlacement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DoughBallPlacement.cs",
+              "ToolTip": "D:\\HelloUnity\\VirtualEnvironmentsProject\\Assets\\Scripts\\DoughBallPlacement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DoughBallPlacement.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T23:43:54.509Z"
+              "WhenOpened": "2026-03-22T10:54:38.008Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NetworkedDestroyable.cs",
-              "DocumentMoniker": "D:\\HelloUnity\\VirtualEnvironmentsProject\\Assets\\Samples\\Ubiq\\1.0.0-pre.16\\Demo (XRI) 1\\Scripts\\NetworkedDestroyable.cs",
-              "RelativeDocumentMoniker": "Assets\\Samples\\Ubiq\\1.0.0-pre.16\\Demo (XRI) 1\\Scripts\\NetworkedDestroyable.cs",
-              "ToolTip": "D:\\HelloUnity\\VirtualEnvironmentsProject\\Assets\\Samples\\Ubiq\\1.0.0-pre.16\\Demo (XRI) 1\\Scripts\\NetworkedDestroyable.cs",
-              "RelativeToolTip": "Assets\\Samples\\Ubiq\\1.0.0-pre.16\\Demo (XRI) 1\\Scripts\\NetworkedDestroyable.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-20T05:41:11.616Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "NetworkedStateObject.cs",
               "DocumentMoniker": "D:\\HelloUnity\\VirtualEnvironmentsProject\\Assets\\Samples\\Ubiq\\1.0.0-pre.16\\Demo (XRI) 1\\Scripts\\NetworkedStateObject.cs",
               "RelativeDocumentMoniker": "Assets\\Samples\\Ubiq\\1.0.0-pre.16\\Demo (XRI) 1\\Scripts\\NetworkedStateObject.cs",
               "ToolTip": "D:\\HelloUnity\\VirtualEnvironmentsProject\\Assets\\Samples\\Ubiq\\1.0.0-pre.16\\Demo (XRI) 1\\Scripts\\NetworkedStateObject.cs",
               "RelativeToolTip": "Assets\\Samples\\Ubiq\\1.0.0-pre.16\\Demo (XRI) 1\\Scripts\\NetworkedStateObject.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAADwvyEAAAAYAAAA",
+              "ViewState": "AQIAACkAAAAAAAAAAAAxwGIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-20T03:21:20.752Z"
+              "WhenOpened": "2026-03-20T03:21:20.752Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -88,7 +58,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\DoughBallRollable.cs",
               "ToolTip": "D:\\HelloUnity\\VirtualEnvironmentsProject\\Assets\\Scripts\\DoughBallRollable.cs",
               "RelativeToolTip": "Assets\\Scripts\\DoughBallRollable.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADwAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-20T02:58:16.34Z",
               "EditorCaption": ""

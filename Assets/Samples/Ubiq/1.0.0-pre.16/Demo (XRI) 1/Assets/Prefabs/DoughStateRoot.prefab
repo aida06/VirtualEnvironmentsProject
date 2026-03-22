@@ -416,6 +416,7 @@ MonoBehaviour:
   - {fileID: 5021398649498421249}
   - {fileID: 7911421305835484577}
   currentState: 0
+  syncPose: 1
 --- !u!1 &7911421305835484577
 GameObject:
   m_ObjectHideFlags: 0

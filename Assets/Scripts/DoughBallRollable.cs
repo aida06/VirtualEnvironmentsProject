@@ -9,15 +9,24 @@ public class DoughBallRollable : MonoBehaviour
     private bool isFlattened = false;
 
     private NetworkedStateObject stateObject;
+    private DoughBallPlacement placement;
 
-    private void Start()
+    private void Awake()
     {
         stateObject = GetComponentInParent<NetworkedStateObject>();
+        placement = GetComponentInParent<DoughBallPlacement>();
+
+        Debug.Log($"[DoughBallRollable] stateObject found = {stateObject != null}");
+        Debug.Log($"[DoughBallRollable] placement found = {placement != null}");
     }
 
     public void AddRollingProgress(float amount)
     {
-        if (isFlattened) return;
+        if (isFlattened)
+            return;
+
+        if (placement != null && !placement.IsPlacedOnTable())
+            return;
 
         rollingProgress += amount;
 
@@ -34,17 +43,19 @@ public class DoughBallRollable : MonoBehaviour
 
     private void Flatten()
     {
-        if (isFlattened) return;
+        if (isFlattened)
+            return;
 
         isFlattened = true;
 
         if (stateObject != null)
         {
-            stateObject.SetState(1);
+            stateObject.SetStateAndPose(1, transform.position, transform.rotation);
+            Debug.Log("[DoughBallRollable] Flatten success, switched to state 1");
         }
         else
         {
-            Debug.LogWarning("NetworkedStateObject not found in parent.");
+            Debug.LogWarning("NetworkedStateObject not found.");
         }
     }
 }

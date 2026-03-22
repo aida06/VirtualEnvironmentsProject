@@ -8,65 +8,76 @@ public class NetworkedStateObject : MonoBehaviour
     public struct StateMessage
     {
         public int state;
+        public Vector3 position;
+        public Quaternion rotation;
     }
 
+    [Header("State Objects")]
     public GameObject[] stateObjects;
+
+    [Header("Current State")]
     public int currentState = 0;
 
+    [Header("Optional")]
+    public bool syncPose = true;
+
     private NetworkContext context;
-
-    private void Awake()
-    {
-        if (stateObjects == null || stateObjects.Length == 0)
-        {
-            stateObjects = new GameObject[2];
-
-            Transform doughBall = transform.Find("DoughBall");
-            Transform dough = transform.Find("Dough");
-
-            if (doughBall != null) stateObjects[0] = doughBall.gameObject;
-            if (dough != null) stateObjects[1] = dough.gameObject;
-        }
-
-        Debug.Log($"[NetworkedStateObject] root={gameObject.name}, child0={(stateObjects.Length > 0 && stateObjects[0] != null ? stateObjects[0].name : "null")}, child1={(stateObjects.Length > 1 && stateObjects[1] != null ? stateObjects[1].name : "null")}, currentState={currentState}");
-    }
 
     private void Start()
     {
         context = NetworkScene.Register(this);
         ApplyState(currentState);
-
-        var doughBall = transform.Find("DoughBall");
-        if (doughBall != null)
-        {
-            var mr = doughBall.GetComponent<MeshRenderer>();
-            var mf = doughBall.GetComponent<MeshFilter>();
-
-            Debug.Log($"[Check] DoughBall worldPos={doughBall.position}");
-            Debug.Log($"[Check] DoughBall localPos={doughBall.localPosition}");
-            Debug.Log($"[Check] DoughBall localScale={doughBall.localScale}");
-            Debug.Log($"[Check] MeshRenderer enabled={(mr != null ? mr.enabled.ToString() : "no renderer")}");
-            Debug.Log($"[Check] Mesh exists={(mf != null && mf.sharedMesh != null)}");
-        }
     }
 
     public void SetState(int newState)
     {
-        if (stateObjects == null || newState < 0 || newState >= stateObjects.Length)
-            return;
+        if (!IsValidState(newState)) return;
 
         currentState = newState;
         ApplyState(currentState);
+        SendState();
+    }
 
+    public void SetStateAndPose(int newState, Vector3 worldPos, Quaternion worldRot)
+    {
+        if (!IsValidState(newState)) return;
+
+        if (syncPose)
+        {
+            transform.position = worldPos;
+            transform.rotation = worldRot;
+        }
+
+        currentState = newState;
+        ApplyState(currentState);
+        SendState();
+    }
+
+    private bool IsValidState(int state)
+    {
+        return stateObjects != null && state >= 0 && state < stateObjects.Length;
+    }
+
+    private void SendState()
+    {
         context.SendJson(new StateMessage
         {
-            state = currentState
+            state = currentState,
+            position = transform.position,
+            rotation = transform.rotation
         });
     }
 
     public void ProcessMessage(ReferenceCountedSceneGraphMessage message)
     {
         var msg = message.FromJson<StateMessage>();
+
+        if (syncPose)
+        {
+            transform.position = msg.position;
+            transform.rotation = msg.rotation;
+        }
+
         currentState = msg.state;
         ApplyState(currentState);
     }
@@ -79,15 +90,10 @@ public class NetworkedStateObject : MonoBehaviour
         {
             if (stateObjects[i] != null)
             {
-                bool shouldBeActive = (i == state);
-                stateObjects[i].SetActive(shouldBeActive);
-                Debug.Log($"[NetworkedStateObject] {stateObjects[i].name} active = {shouldBeActive}");
-            }
-            else
-            {
-                Debug.LogWarning($"[NetworkedStateObject] stateObjects[{i}] is null");
+                stateObjects[i].SetActive(i == state);
             }
         }
+
+        Debug.Log($"[NetworkedStateObject] ApplyState -> {state}, pos={transform.position}");
     }
 }
-
