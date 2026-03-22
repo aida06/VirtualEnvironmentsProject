@@ -382,7 +382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4612964433079517980
 Transform:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5086369169979528877}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64c9544608cedc14792fc4943e334b85, type: 3}
   m_Name: 
@@ -430,7 +430,6 @@ GameObject:
   - component: {fileID: 5603920795628377681}
   - component: {fileID: -6538896929744192895}
   - component: {fileID: 494912477743498754}
-  - component: {fileID: 283532117138731723}
   - component: {fileID: 9113045680452615639}
   m_Layer: 0
   m_Name: Dough
@@ -682,23 +681,6 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
---- !u!114 &283532117138731723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7911421305835484577}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f0ce4a8bb32c2e4ba7757d7ae271cbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NetworkedGrabbable
-  sendInterval: 0.05
-  positionThreshold: 0.001
-  rotationThreshold: 0.5
-  positionLerpSpeed: 15
-  rotationLerpSpeed: 15
 --- !u!114 &9113045680452615639
 MonoBehaviour:
   m_ObjectHideFlags: 0
