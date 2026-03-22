@@ -26,9 +26,13 @@ public class DoughBallRollable : MonoBehaviour
             return;
 
         if (placement != null && !placement.IsPlacedOnTable())
+        {
+            Debug.Log("[DoughBallRollable] Not placed on table yet, skip rolling.");
             return;
+        }
 
         rollingProgress += amount;
+        Debug.Log($"[DoughBallRollable] rollingProgress = {rollingProgress:F2} / {requiredRollingTime}");
 
         if (rollingProgress >= requiredRollingTime)
         {
@@ -46,11 +50,27 @@ public class DoughBallRollable : MonoBehaviour
         if (isFlattened)
             return;
 
+        if (stateObject != null && !stateObject.hasOwner)
+        {
+            stateObject.ClaimOwnership();
+        }
+
+        if (stateObject != null && !stateObject.IsOwner())
+        {
+            Debug.Log("[DoughBallRollable] Not owner, ignore flatten.");
+            return;
+        }
+
         isFlattened = true;
 
         if (stateObject != null)
         {
-            stateObject.SetStateAndPose(1, transform.position, transform.rotation);
+            stateObject.SetStateAndPose(
+                1,
+                stateObject.transform.position,
+                stateObject.transform.rotation
+            );
+
             Debug.Log("[DoughBallRollable] Flatten success, switched to state 1");
         }
         else
