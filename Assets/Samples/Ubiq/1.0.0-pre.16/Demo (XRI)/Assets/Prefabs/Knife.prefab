@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8634512902817858546}
   - component: {fileID: 8733993270046113417}
   - component: {fileID: 6009618701956632083}
+  - component: {fileID: -6560885876978734365}
   m_Layer: 2
   m_Name: Knife
   m_TagString: Untagged
@@ -264,3 +265,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5788561943143723117, guid: 7e91e4bb93f9cc94ea347427dbcc50e6, type: 3}
+--- !u!114 &-6560885876978734365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120331729733790021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af95fab18fe9194b803d2ad1e71e5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkedMovement
+  sendInterval: 0.05
+  positionThreshold: 0.001
+  rotationThreshold: 0.5
+  positionLerpSpeed: 15
+  rotationLerpSpeed: 15

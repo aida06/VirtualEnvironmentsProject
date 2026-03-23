@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 494912477743498754}
   - component: {fileID: 8905235581852068040}
   - component: {fileID: 8321722801187190854}
+  - component: {fileID: 5521272899043156508}
   m_Layer: 0
   m_Name: Dough
   m_TagString: Untagged
@@ -310,3 +311,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.57433784, y: 0.020659555, z: 0.55873096}
   m_Center: {x: 0, y: 0.010329769, z: 3.0785113e-10}
+--- !u!114 &5521272899043156508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7911421305835484577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af95fab18fe9194b803d2ad1e71e5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkedMovement
+  sendInterval: 0.05
+  positionThreshold: 0.001
+  rotationThreshold: 0.5
+  positionLerpSpeed: 15
+  rotationLerpSpeed: 15

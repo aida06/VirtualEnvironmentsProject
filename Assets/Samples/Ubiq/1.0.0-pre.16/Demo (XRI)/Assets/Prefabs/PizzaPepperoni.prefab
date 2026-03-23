@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 4791344436956975394}
   - component: {fileID: 5271663220567272457}
   - component: {fileID: 5439598203096318379}
+  - component: {fileID: -1206658638890966655}
   m_Layer: 0
   m_Name: PizzaPepperoni
   m_TagString: pizza
@@ -413,7 +414,6 @@ MonoBehaviour:
   saucedPizzaPrefab: {fileID: 2129519333134390934, guid: a6a9874fd7a62a8458c904945ea8ef12, type: 3}
   progressSlider: {fileID: 5777326471383499123}
   progressCanvas: {fileID: 0}
-  saucingSound: {fileID: 0}
 --- !u!54 &4791344436956975394
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -584,6 +584,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5960023, y: 0.030708086, z: 0.5960022}
   m_Center: {x: 0.00000034275527, y: 0.015354039, z: 2.860934e-11}
+--- !u!114 &-1206658638890966655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4062001363306246008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af95fab18fe9194b803d2ad1e71e5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkedMovement
+  sendInterval: 0.05
+  positionThreshold: 0.001
+  rotationThreshold: 0.5
+  positionLerpSpeed: 15
+  rotationLerpSpeed: 15
 --- !u!1 &5690815114616284194
 GameObject:
   m_ObjectHideFlags: 0

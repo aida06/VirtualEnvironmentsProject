@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3060317111888955740}
   - component: {fileID: 1994889002766456593}
   - component: {fileID: 7051143716829195924}
+  - component: {fileID: 373624607376928617}
   m_Layer: 0
   m_Name: RollingPin
   m_TagString: Untagged
@@ -264,3 +265,20 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &373624607376928617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8494587111828014721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af95fab18fe9194b803d2ad1e71e5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkedMovement
+  sendInterval: 0.05
+  positionThreshold: 0.001
+  rotationThreshold: 0.5
+  positionLerpSpeed: 15
+  rotationLerpSpeed: 15

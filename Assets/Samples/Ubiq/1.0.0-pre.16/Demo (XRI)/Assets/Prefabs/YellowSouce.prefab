@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1380015080259753713}
   - component: {fileID: 7982715310189022972}
   - component: {fileID: 7134589886665003580}
+  - component: {fileID: 6076937977742663153}
   m_Layer: 0
   m_Name: YellowSouce
   m_TagString: Untagged
@@ -264,3 +265,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4149871272582007926, guid: 7e91e4bb93f9cc94ea347427dbcc50e6, type: 3}
+--- !u!114 &6076937977742663153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711183024729860277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af95fab18fe9194b803d2ad1e71e5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkedMovement
+  sendInterval: 0.05
+  positionThreshold: 0.001
+  rotationThreshold: 0.5
+  positionLerpSpeed: 15
+  rotationLerpSpeed: 15

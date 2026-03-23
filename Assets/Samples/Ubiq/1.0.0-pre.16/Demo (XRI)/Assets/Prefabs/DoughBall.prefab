@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: -106080022471956541}
   - component: {fileID: 9134189010221115132}
   - component: {fileID: -4465720751140989808}
+  - component: {fileID: 5668690209224889572}
   m_Layer: 0
   m_Name: DoughBall
   m_TagString: Untagged
@@ -350,3 +351,20 @@ MonoBehaviour:
   flattenedDoughPrefab: {fileID: 7911421305835484577, guid: c6cbf82a0d7adb341b3f4400efefda23, type: 3}
   requiredRollingTime: 3
   rollingSound: {fileID: 8300000, guid: 7be0a011397f80e4fbfc17db8c855330, type: 3}
+--- !u!114 &5668690209224889572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5021398649498421249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af95fab18fe9194b803d2ad1e71e5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkedMovement
+  sendInterval: 0.05
+  positionThreshold: 0.001
+  rotationThreshold: 0.5
+  positionLerpSpeed: 15
+  rotationLerpSpeed: 15

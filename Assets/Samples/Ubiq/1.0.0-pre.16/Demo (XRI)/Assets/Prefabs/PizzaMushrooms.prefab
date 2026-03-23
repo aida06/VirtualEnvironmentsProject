@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: -55229223962489211}
   - component: {fileID: 4770664194228457381}
   - component: {fileID: -8643833220881779513}
+  - component: {fileID: -7061566108029883834}
   m_Layer: 0
   m_Name: PizzaMushrooms
   m_TagString: pizza
@@ -257,7 +258,6 @@ MonoBehaviour:
   saucedPizzaPrefab: {fileID: 3669225805353101104, guid: 4508b48af33e2e0499be7c39e220f235, type: 3}
   progressSlider: {fileID: 4141023994943790671}
   progressCanvas: {fileID: 6630388532694827324}
-  saucingSound: {fileID: 0}
 --- !u!65 &-55229223962489211
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -428,6 +428,23 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &-7061566108029883834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762502872705194124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af95fab18fe9194b803d2ad1e71e5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkedMovement
+  sendInterval: 0.05
+  positionThreshold: 0.001
+  rotationThreshold: 0.5
+  positionLerpSpeed: 15
+  rotationLerpSpeed: 15
 --- !u!1 &6289356958153879173
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using Ubiq.Spawning;
 
 public class ItemBox : MonoBehaviour
 {
@@ -11,9 +12,20 @@ public class ItemBox : MonoBehaviour
     [Header("XR Interaction")]
     public XRSimpleInteractable interactable;
 
+    [Header("Networking")]
+    public NetworkSpawnManager networkSpawnManager;
+
     private void Reset()
     {
         interactable = GetComponent<XRSimpleInteractable>();
+    }
+
+    private void Awake()
+    {
+        if (networkSpawnManager == null)
+        {
+            networkSpawnManager = NetworkSpawnManager.Find(this);
+        }
     }
 
     private void OnEnable()
@@ -41,9 +53,17 @@ public class ItemBox : MonoBehaviour
     {
         if (itemPrefab == null)
         {
-            Debug.LogWarning("Item Prefab is not assigned.");
+            Debug.LogWarning($"{name}: Item Prefab is not assigned.");
             return null;
         }
+
+        if (networkSpawnManager == null)
+        {
+            Debug.LogWarning($"{name}: NetworkSpawnManager not found.");
+            return null;
+        }
+
+        Debug.Log($"{name}: Spawning prefab = {itemPrefab.name}");
 
         Vector3 spawnPosition = spawnPoint != null
             ? spawnPoint.position
@@ -53,6 +73,23 @@ public class ItemBox : MonoBehaviour
             ? spawnPoint.rotation
             : Quaternion.identity;
 
-        return Instantiate(itemPrefab, spawnPosition, spawnRotation);
+        GameObject spawned = networkSpawnManager.SpawnWithPeerScope(itemPrefab);
+
+        if (spawned != null)
+        {
+            spawned.transform.position = spawnPosition;
+            spawned.transform.rotation = spawnRotation;
+
+            // ¿ÉÑ¡
+  //          var rollable = spawned.GetComponent<DoughBallRollable>();
+  //          if (rollable != null)
+  //          {
+  //              rollable.SetNetworkSpawnManager(networkSpawnManager);
+  //          }
+
+
+        }
+
+        return spawned;
     }
 }
