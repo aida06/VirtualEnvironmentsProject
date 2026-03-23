@@ -3,11 +3,27 @@
   "WorkspaceRootPath": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|d:\\hellounity\\vr2\\virtualenvironmentsproject\\assets\\scripts\\networkedmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\assets\\scripts\\rollingpincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\rollingpincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\assets\\scripts\\destroydoughballrollable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\destroydoughballrollable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\assets\\scripts\\networkeddestroyable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\networkeddestroyable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\assets\\scripts\\destoryitembox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\destoryitembox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\assets\\scripts\\networkedmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\networkedmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|d:\\hellounity\\vr2\\virtualenvironmentsproject\\assets\\scripts\\itembox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\assets\\scripts\\itembox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\itembox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -23,6 +39,55 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RollingPinController.cs",
+              "DocumentMoniker": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\Assets\\Scripts\\RollingPinController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RollingPinController.cs",
+              "ToolTip": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\Assets\\Scripts\\RollingPinController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RollingPinController.cs",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAywF4AAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T22:22:02.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NetworkedDestroyable.cs",
+              "DocumentMoniker": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\Assets\\Scripts\\NetworkedDestroyable.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NetworkedDestroyable.cs",
+              "ToolTip": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\Assets\\Scripts\\NetworkedDestroyable.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NetworkedDestroyable.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T22:13:45.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DestoryItemBox.cs",
+              "DocumentMoniker": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\Assets\\Scripts\\DestoryItemBox.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DestoryItemBox.cs",
+              "ToolTip": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\Assets\\Scripts\\DestoryItemBox.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DestoryItemBox.cs",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAkwFAAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T22:11:45.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DestroyDoughBallRollable.cs",
+              "DocumentMoniker": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\Assets\\Scripts\\DestroyDoughBallRollable.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DestroyDoughBallRollable.cs",
+              "ToolTip": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\Assets\\Scripts\\DestroyDoughBallRollable.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DestroyDoughBallRollable.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T21:45:58.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "NetworkedMovement.cs",
               "DocumentMoniker": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\Assets\\Scripts\\NetworkedMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NetworkedMovement.cs",
@@ -30,21 +95,19 @@
               "RelativeToolTip": "Assets\\Scripts\\NetworkedMovement.cs",
               "ViewState": "AQIAAHMAAAAAAAAAAAAkwIkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T21:11:26.859Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T21:11:26.859Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "ItemBox.cs",
               "DocumentMoniker": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\Assets\\Scripts\\ItemBox.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ItemBox.cs",
               "ToolTip": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\Assets\\Scripts\\ItemBox.cs",
               "RelativeToolTip": "Assets\\Scripts\\ItemBox.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAkwFcAAAAEAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAE8AAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T20:56:55.77Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T20:56:55.77Z"
             }
           ]
         }
