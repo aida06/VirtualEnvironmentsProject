@@ -14,13 +14,8 @@ public class DestoryDoughBallRollable : MonoBehaviour
 
     private float rollingProgress = 0f;
 
-    // 最终状态锁
     private bool isFlattened = false;
-
-    // 本地是否已经发过 flatten 消息
     private bool flattenMessageSent = false;
-
-    // 是否已经真正执行过 flatten
     private bool flattenApplied = false;
 
     private AudioSource audioSource;
@@ -52,7 +47,6 @@ public class DestoryDoughBallRollable : MonoBehaviour
         if (isFlattened || flattenApplied)
             return;
 
-        // 开始擀面时播放音效
         if (audioSource != null && rollingSound != null && !audioSource.isPlaying)
         {
             audioSource.Play();
@@ -81,7 +75,6 @@ public class DestoryDoughBallRollable : MonoBehaviour
         Vector3 spawnPosition = transform.position;
         Quaternion spawnRotation = transform.rotation;
 
-        // 先发联机消息
         if (networkedDestroyable != null)
         {
             networkedDestroyable.SendFlatten(spawnPosition, spawnRotation);
@@ -91,8 +84,8 @@ public class DestoryDoughBallRollable : MonoBehaviour
             Debug.LogWarning("[DestoryDoughBallRollable] Cannot send flatten message because NetworkedDestroyable is missing.");
         }
 
-        // 本地立即执行一次，避免自己还要等网络消息回来
-        ApplyFlattenFromNetwork(spawnPosition, spawnRotation);
+        // 不要本地立刻执行，等网络消息回来再统一执行
+        // ApplyFlattenFromNetwork(spawnPosition, spawnRotation);
     }
 
     public void ApplyFlattenFromNetwork(Vector3 spawnPosition, Quaternion spawnRotation)
@@ -103,7 +96,6 @@ public class DestoryDoughBallRollable : MonoBehaviour
         flattenApplied = true;
         isFlattened = true;
 
-        // 停止音效
         if (audioSource != null && audioSource.isPlaying)
         {
             audioSource.Stop();
@@ -121,7 +113,6 @@ public class DestoryDoughBallRollable : MonoBehaviour
             return;
         }
 
-        // 联机生成新的面饼
         GameObject spawned = networkSpawnManager.SpawnWithPeerScope(flattenedDoughPrefab);
         if (spawned != null)
         {
@@ -129,7 +120,6 @@ public class DestoryDoughBallRollable : MonoBehaviour
             spawned.transform.rotation = spawnRotation;
         }
 
-        // 销毁旧面球
         Destroy(gameObject);
     }
 }

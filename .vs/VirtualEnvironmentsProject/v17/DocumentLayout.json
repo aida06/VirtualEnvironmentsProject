@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\assets\\scripts\\destroydoughballrollable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|d:\\hellounity\\vr2\\virtualenvironmentsproject\\assets\\scripts\\destroydoughballrollable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\destroydoughballrollable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|d:\\hellounity\\vr2\\virtualenvironmentsproject\\assets\\scripts\\networkedmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\assets\\scripts\\networkedmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ADED32CD-4DC1-6044-E5BA-1D1E5A13361C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\networkedmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -38,8 +38,7 @@
               "RelativeToolTip": "Assets\\Scripts\\NetworkedMovement.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAJgAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T23:43:42.992Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T23:43:42.992Z"
             },
             {
               "$type": "Document",
@@ -51,8 +50,7 @@
               "RelativeToolTip": "Assets\\Scripts\\NetworkedDestroyable.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T22:13:45.921Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T22:13:45.921Z"
             },
             {
               "$type": "Document",
@@ -64,8 +62,7 @@
               "RelativeToolTip": "Assets\\Scripts\\DestoryItemBox.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAFAAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T22:11:45.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T22:11:45.102Z"
             },
             {
               "$type": "Document",
@@ -75,7 +72,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\DestroyDoughBallRollable.cs",
               "ToolTip": "D:\\HelloUnity\\VR2\\VirtualEnvironmentsProject\\Assets\\Scripts\\DestroyDoughBallRollable.cs",
               "RelativeToolTip": "Assets\\Scripts\\DestroyDoughBallRollable.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAqAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHwAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-23T21:45:58.263Z",
               "EditorCaption": ""
