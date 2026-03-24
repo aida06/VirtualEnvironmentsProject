@@ -16,39 +16,45 @@ public class NetworkedMovement : MonoBehaviour
 
     private NetworkContext context;
     private XRGrabInteractable grabInteractable;
+    private Rigidbody rb;
 
     private Vector3 lastPosition;
     private Quaternion lastRotation;
 
-    private bool suppressSend = false;
     private bool isGrabbed = false;
 
     [Header("Sync Settings")]
-    [SerializeField] private float sendInterval = 0.05f; // 20Hz
+    [SerializeField] private float sendInterval = 0.05f;
     [SerializeField] private float positionThreshold = 0.001f;
     [SerializeField] private float rotationThreshold = 0.5f;
 
     private float nextSendTime = 0f;
 
-    // Remote smoothing target
+    [Header("Remote Smoothing")]
+    [SerializeField] private float positionLerpSpeed = 15f;
+    [SerializeField] private float rotationLerpSpeed = 15f;
+
     private Vector3 targetPosition;
     private Quaternion targetRotation;
     private bool hasRemoteState = false;
 
-    [Header("Remote Smoothing")]
-    [SerializeField] private float positionLerpSpeed = 15f;
-    [SerializeField] private float rotationLerpSpeed = 15f;
+    // 关键：最近收到远端消息的时间
+    private float lastRemoteMessageTime = -999f;
+
+    // 关键：收到远端消息后，多长时间内认为“当前由远端控制”
+    [SerializeField] private float remoteControlTimeout = 0.15f;
 
     private void Start()
     {
         context = NetworkScene.Register(this);
         grabInteractable = GetComponent<XRGrabInteractable>();
+        rb = GetComponent<Rigidbody>();
 
-        lastPosition = transform.localPosition;
-        lastRotation = transform.localRotation;
+        lastPosition = transform.position;
+        lastRotation = transform.rotation;
 
-        targetPosition = transform.localPosition;
-        targetRotation = transform.localRotation;
+        targetPosition = transform.position;
+        targetRotation = transform.rotation;
 
         if (grabInteractable != null)
         {
@@ -74,65 +80,74 @@ public class NetworkedMovement : MonoBehaviour
     private void OnRelease(SelectExitEventArgs args)
     {
         isGrabbed = false;
+
+        // 松手时发一次最终状态
+        SendCurrentTransform(true);
     }
 
     private void Update()
     {
-        // If transform was just updated from network, do not send immediately
-        if (suppressSend)
-        {
-            suppressSend = false;
-            lastPosition = transform.localPosition;
-            lastRotation = transform.localRotation;
-            return;
-        }
+        bool isRemoteControlled = (Time.time - lastRemoteMessageTime) < remoteControlTimeout;
 
-        // If this object is being controlled remotely, smooth toward target
-        if (!isGrabbed && hasRemoteState)
+        // 如果最近收到远端消息，并且本地没抓着，就平滑跟随远端
+        if (!isGrabbed && hasRemoteState && isRemoteControlled)
         {
-            transform.localPosition = Vector3.Lerp(
-                transform.localPosition,
+            transform.position = Vector3.Lerp(
+                transform.position,
                 targetPosition,
                 Time.deltaTime * positionLerpSpeed
             );
 
-            transform.localRotation = Quaternion.Slerp(
-                transform.localRotation,
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
                 targetRotation,
                 Time.deltaTime * rotationLerpSpeed
             );
+
+            return;
         }
 
-        // Limit send frequency
+        // 发送频率限制
         if (Time.time < nextSendTime)
             return;
 
-        bool positionChanged = Vector3.Distance(transform.localPosition, lastPosition) > positionThreshold;
-        bool rotationChanged = Quaternion.Angle(transform.localRotation, lastRotation) > rotationThreshold;
+        SendCurrentTransform(false);
+    }
 
-        if (positionChanged || rotationChanged)
+    private void SendCurrentTransform(bool forceSend)
+    {
+        Vector3 currentPosition = transform.position;
+        Quaternion currentRotation = transform.rotation;
+
+        bool positionChanged = Vector3.Distance(currentPosition, lastPosition) > positionThreshold;
+        bool rotationChanged = Quaternion.Angle(currentRotation, lastRotation) > rotationThreshold;
+
+        if (!forceSend && !positionChanged && !rotationChanged)
+            return;
+
+        lastPosition = currentPosition;
+        lastRotation = currentRotation;
+        nextSendTime = Time.time + sendInterval;
+
+        context.SendJson(new TransformMessage
         {
-            lastPosition = transform.localPosition;
-            lastRotation = transform.localRotation;
-            nextSendTime = Time.time + sendInterval;
-
-            context.SendJson(new TransformMessage
-            {
-                position = transform.localPosition,
-                rotation = transform.localRotation,
-                isGrabbed = isGrabbed
-            });
-        }
+            position = currentPosition,
+            rotation = currentRotation,
+            isGrabbed = isGrabbed
+        });
     }
 
     public void ProcessMessage(ReferenceCountedSceneGraphMessage message)
     {
         var msg = message.FromJson<TransformMessage>();
 
-        suppressSend = true;
+        // 如果本地正在抓，就忽略远端消息
+        if (isGrabbed)
+            return;
+
         hasRemoteState = true;
         targetPosition = msg.position;
         targetRotation = msg.rotation;
+        lastRemoteMessageTime = Time.time;
     }
 }
-

@@ -24297,7 +24297,6 @@ GameObject:
   - component: {fileID: 1343118634}
   - component: {fileID: 1343118633}
   - component: {fileID: 1343118635}
-  - component: {fileID: 1343118636}
   - component: {fileID: 1343118637}
   - component: {fileID: 1343118638}
   m_Layer: 0
@@ -24400,22 +24399,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.70828074, y: 0.5807142, z: 0.7679841}
   m_Center: {x: 0.00000003060729, y: 0.14404908, z: -0.0000022033691}
---- !u!114 &1343118636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343118631}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dbcdb2b43e0b2b49ac7ec6c5b79cac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemBox
-  itemPrefab: {fileID: 5021398649498421249, guid: 2472fdc310db0e14bbdc8bc83d2fbe28, type: 3}
-  spawnPoint: {fileID: 0}
-  interactable: {fileID: 1343118637}
-  networkSpawnManager: {fileID: 2113828408}
 --- !u!114 &1343118637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31824,21 +31807,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4304228405573847748, guid: c5a4b043aba8c3440a0bdaa6fe5eb758, type: 3}
   m_PrefabInstance: {fileID: 3443213625157126026}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1941597096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132541294}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 085b441803ba6054cbe4357f3b62426c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RollingPinController
-  minimumRollingSpeed: 0.15
-  rollingDirectionDotThreshold: 0.6
-  rollingReference: {fileID: 842479554}
 --- !u!114 &1941597103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33740,7 +33708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20671c89f8d64851a00cc2b61a44754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  gameDuration: 240
+  gameDuration: 1200
   mainMenuSceneName: 00MainMenu
   orderSpawnInterval: 8
   orderTimeLimit: 60
@@ -34169,9 +34137,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1907608258}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8494587111828014721, guid: c5a4b043aba8c3440a0bdaa6fe5eb758, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1941597096}
     - targetCorrespondingSourceObject: {fileID: 8494587111828014721, guid: c5a4b043aba8c3440a0bdaa6fe5eb758, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1941597103}
