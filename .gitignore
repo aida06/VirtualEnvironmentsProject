@@ -22,3 +22,4 @@ UserSettings/
 *.opendb
 *.VC.db
 新建文件夹/
+.claude/
