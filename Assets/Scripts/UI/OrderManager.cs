@@ -23,18 +23,16 @@ public class OrderManager : MonoBehaviour
     {
         new RecipeData
         {
-            name = "Pizza",
+            name = "Pizza-Sausage",
             iconSpriteName = "icon_pizza",
-            requiredIngredients = new[] { "icon_dough", "icon_sausage","icon_cheese" },
-            // optionalIngredients = new[] { "icon_mushroom" }
+            requiredIngredients = new[] { "icon_dough", "icon_sausage","icon_cheese" }
         },
-        // new RecipeData
-        // {
-        //     name = "Burger",
-        //     iconSpriteName = "icon_burger",
-        //     requiredIngredients = new[] { "icon_bread", "icon_meat" },
-        //     optionalIngredients = new[] { "icon_lettuce", "icon_tomato" }
-        // }
+        new RecipeData
+        {
+            name = "Pizza-Mushroom",
+            iconSpriteName = "icon_pizza",
+            requiredIngredients = new[] { "icon_dough", "icon_mushroom","icon_cheese" }
+        }
     };
 
     private Transform canvasTransform;
@@ -73,11 +71,17 @@ public class OrderManager : MonoBehaviour
             spawnTimer = spawnInterval;
         }
 
-        // Remove expired orders (iterate backwards for safe removal)
+        // Remove expired orders and deduct points (iterate backwards for safe removal)
         for (int i = activeOrders.Count - 1; i >= 0; i--)
         {
             if (activeOrders[i] == null || activeOrders[i].IsExpired)
             {
+                // Deduct 10 points for each expired order
+                if (activeOrders[i] != null && activeOrders[i].IsExpired)
+                {
+                    ScoreManager.Instance?.AddScore(-20);
+                    Debug.Log($"[OrderManager] Order expired: {activeOrders[i].RecipeName} (-20 points)");
+                }
                 RemoveOrder(i);
             }
         }
@@ -148,6 +152,25 @@ public class OrderManager : MonoBehaviour
     {
         if (activeOrders.Count > 0)
             RemoveOrder(0);
+    }
+
+    /// <summary>
+    /// Completes and removes the oldest order matching the given recipe name.
+    /// Returns true if a matching order was found and removed.
+    /// </summary>
+    public bool CompleteOldestOrderByType(string recipeName)
+    {
+        for (int i = 0; i < activeOrders.Count; i++)
+        {
+            if (activeOrders[i] != null && activeOrders[i].RecipeName == recipeName)
+            {
+                Debug.Log($"[OrderManager] Completed order: {recipeName} (index {i})");
+                RemoveOrder(i);
+                return true;
+            }
+        }
+        Debug.Log($"[OrderManager] No matching order found for: {recipeName}");
+        return false;
     }
 
     /// <summary>

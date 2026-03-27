@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -34,8 +35,13 @@ public class MainMenuUI : MonoBehaviour
         // Canvas
         var canvasObj = new GameObject("MainMenuCanvas");
         var canvas = canvasObj.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.renderMode = RenderMode.ScreenSpaceCamera;
+        canvas.worldCamera = Camera.main;
+        canvas.planeDistance = 1.0f;
         canvas.sortingOrder = 100;
+
+        if (canvas.worldCamera == null)
+            StartCoroutine(AssignCameraWhenReady(canvas));
 
         var scaler = canvasObj.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
@@ -136,5 +142,14 @@ public class MainMenuUI : MonoBehaviour
     private void OnStartGame()
     {
         SceneManager.LoadScene(gameSceneName);
+    }
+
+    private IEnumerator AssignCameraWhenReady(Canvas canvas)
+    {
+        while (canvas != null && canvas.worldCamera == null)
+        {
+            canvas.worldCamera = Camera.main;
+            yield return null;
+        }
     }
 }

@@ -38,12 +38,32 @@ public class TutorialGameOverUI : MonoBehaviour
 
     private void OnGameStateChanged(GameManager.GameState state)
     {
-        if (state == GameManager.GameState.GameOver && scoreText != null)
-        {
-            int score = ScoreManager.Instance != null ? ScoreManager.Instance.CurrentScore : 0;
-            scoreText.text = score.ToString();
-        }
         panel.SetActive(state == GameManager.GameState.GameOver);
+
+        if (state == GameManager.GameState.GameOver)
+        {
+            int finalScore = ScoreManager.Instance != null ? ScoreManager.Instance.CurrentScore : 0;
+            StartCoroutine(AnimateScore(finalScore));
+        }
+    }
+
+    private System.Collections.IEnumerator AnimateScore(int targetScore)
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameManager.Instance?.PlaySound("Audio/stage_clear");
+
+        float duration = 4f;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            t = 1f - Mathf.Pow(1f - t, 3f);
+            int displayScore = Mathf.RoundToInt(Mathf.Lerp(0, targetScore, t));
+            if (scoreText != null) scoreText.text = displayScore.ToString();
+            yield return null;
+        }
+        if (scoreText != null) scoreText.text = targetScore.ToString();
     }
 
     private void CreateUI()

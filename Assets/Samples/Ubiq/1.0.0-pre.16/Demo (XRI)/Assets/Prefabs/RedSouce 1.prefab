@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 5141688848534955129}
   - component: {fileID: 6618260048773699023}
   - component: {fileID: 1588868053698204935}
+  - component: {fileID: 3683719653665340170}
   m_Layer: 0
   m_Name: RedSouce 1
   m_TagString: Untagged
@@ -296,3 +297,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2925625611812546334, guid: 7e91e4bb93f9cc94ea347427dbcc50e6, type: 3}
+--- !u!114 &3683719653665340170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6209118899885959026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fde5bef79e0d643ab2a34c4220bfe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkedGrabbable
+  sendRate: 20

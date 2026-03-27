@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -40,8 +41,13 @@ public class TutorialOverlay : MonoBehaviour
     {
         var canvasObj = new GameObject("TutorialOverlayCanvas");
         overlayCanvas = canvasObj.AddComponent<Canvas>();
-        overlayCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        overlayCanvas.renderMode = RenderMode.ScreenSpaceCamera;
+        overlayCanvas.worldCamera = Camera.main;
+        overlayCanvas.planeDistance = 0.95f;
         overlayCanvas.sortingOrder = 20; // above game UI (sortingOrder = 10)
+
+        if (overlayCanvas.worldCamera == null)
+            StartCoroutine(AssignCameraWhenReady(overlayCanvas));
 
         var scaler = canvasObj.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
@@ -217,5 +223,14 @@ public class TutorialOverlay : MonoBehaviour
     public Transform GetCanvasTransform()
     {
         return overlayCanvas?.transform;
+    }
+
+    private IEnumerator AssignCameraWhenReady(Canvas canvas)
+    {
+        while (canvas != null && canvas.worldCamera == null)
+        {
+            canvas.worldCamera = Camera.main;
+            yield return null;
+        }
     }
 }

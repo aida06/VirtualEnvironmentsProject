@@ -22,4 +22,10 @@ public class ScoreManager : MonoBehaviour
         CurrentScore += amount;
         OnScoreChanged?.Invoke(CurrentScore);
     }
+
+    /// <summary>由 NetworkedGameState 调用：静默设置分数，不触发 OnScoreChanged（避免网络回环）</summary>
+    public void SetScoreSilent(int score)
+    {
+        CurrentScore = score;
+    }
 }

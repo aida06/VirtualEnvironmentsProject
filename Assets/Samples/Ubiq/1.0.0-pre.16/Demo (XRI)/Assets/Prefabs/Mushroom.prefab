@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: -6952884702543724609}
   - component: {fileID: -5986592860369070121}
   - component: {fileID: 3863516988482981721}
+  - component: {fileID: 6193222398965183283}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: mushroom
@@ -350,3 +351,16 @@ MonoBehaviour:
   tableTag: Table
   settleDelay: 0.15
   mainCollider: {fileID: 4172226919823870376}
+--- !u!114 &6193222398965183283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3080998231645034487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fde5bef79e0d643ab2a34c4220bfe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetworkedGrabbable
+  sendRate: 20

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -22,8 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string mainMenuSceneName = "00MainMenu";
 
     [Header("Order Settings")]
-    [SerializeField] private float orderSpawnInterval = 8f;
-    [SerializeField] private float orderTimeLimit = 60f;
+    [SerializeField] private float orderSpawnInterval = 15f;
+    [SerializeField] private float orderTimeLimit = 90f;
     [SerializeField] private int maxActiveOrders = 5;
 
     [Header("Tutorial Mode")]
@@ -35,12 +36,17 @@ public class GameManager : MonoBehaviour
     public float RemainingTime { get; private set; }
     public Canvas UICanvas { get; private set; }
 
+    private bool timerActive = true;
+
     // Public properties for other scripts
     public bool IsTutorialMode => isTutorialMode;
     public float FrozenTimerValue => frozenTimerValue;
     public string GameSceneName => gameSceneName;
 
     public event System.Action<GameState> OnStateChanged;
+
+    // Audio
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -50,6 +56,10 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+
+        // Audio source for UI sounds
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
 
         RemainingTime = isTutorialMode ? frozenTimerValue : gameDuration;
         CreateCanvas();
@@ -66,8 +76,8 @@ public class GameManager : MonoBehaviour
     {
         if (CurrentState != GameState.Playing) return;
 
-        // In tutorial mode, the timer is frozen
-        if (!isTutorialMode)
+        // In tutorial mode, or when frozen by NetworkedGameState (non-host), timer is paused
+        if (!isTutorialMode && timerActive)
         {
             RemainingTime -= Time.deltaTime;
             if (RemainingTime <= 0f)
@@ -83,8 +93,15 @@ public class GameManager : MonoBehaviour
     {
         var canvasObj = new GameObject("GameUI_Canvas");
         UICanvas = canvasObj.AddComponent<Canvas>();
-        UICanvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
+        // ScreenSpaceCamera renders correctly in VR headsets (Quest 3 etc.)
+        UICanvas.renderMode = RenderMode.ScreenSpaceCamera;
+        UICanvas.worldCamera = Camera.main;
+        UICanvas.planeDistance = 1.0f;
         UICanvas.sortingOrder = 10;
+
+        if (UICanvas.worldCamera == null)
+            StartCoroutine(AssignCameraWhenReady(UICanvas));
 
         var scaler = canvasObj.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
@@ -150,6 +167,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>由 NetworkedGameState 调用：暂停/恢复本地计时器（非房主接收房主广播前冻结）</summary>
+    public void SetTimerActive(bool active) => timerActive = active;
+
+    /// <summary>由 NetworkedGameState 调用：将剩余时间同步为房主广播值，并解冻计时器</summary>
+    public void SyncTime(float remainingTime)
+    {
+        RemainingTime = remainingTime;
+        timerActive = true;
+    }
+
+    /// <summary>由 NetworkedGameState 调用：强制进入 GameOver 状态（非房主收到游戏结束通知时）</summary>
+    public void ForceGameOver()
+    {
+        if (CurrentState == GameState.GameOver) return;
+        RemainingTime = 0f;
+        CurrentState = GameState.GameOver;
+        OnStateChanged?.Invoke(CurrentState);
+    }
+
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -162,17 +198,21 @@ public class GameManager : MonoBehaviour
 
     /// <summary>
     /// Call this from your game logic when a player delivers the correct dish.
-    /// Completes the oldest active order.
+    /// Awards the specified score and removes the oldest matching order.
     /// </summary>
-    public void CompleteOldestOrder()
+    public void CompleteOldestOrder(int score = 50, string recipeName = null)
     {
-        // Always award points when a valid pizza is delivered
-        ScoreManager.Instance?.AddScore(50);
+        ScoreManager.Instance?.AddScore(score);
+        PlaySound("Audio/coin_collect");
 
-        // Remove the oldest order card (if OrderManager exists, i.e. not tutorial mode)
         var orderMgr = GetComponentInChildren<OrderManager>();
         if (orderMgr != null)
-            orderMgr.CompleteOldestOrder();
+        {
+            if (!string.IsNullOrEmpty(recipeName))
+                orderMgr.CompleteOldestOrderByType(recipeName);
+            else
+                orderMgr.CompleteOldestOrder();
+        }
     }
 
     /// <summary>
@@ -184,5 +224,25 @@ public class GameManager : MonoBehaviour
         if (!isTutorialMode) return;
         CurrentState = GameState.GameOver;
         OnStateChanged?.Invoke(CurrentState);
+    }
+
+    // ---- Audio helpers ----
+
+    public void PlaySound(string resourcePath)
+    {
+        var clip = Resources.Load<AudioClip>(resourcePath);
+        if (clip != null && audioSource != null)
+            audioSource.PlayOneShot(clip);
+    }
+
+    // ---- Camera helper ----
+
+    private IEnumerator AssignCameraWhenReady(Canvas canvas)
+    {
+        while (canvas != null && canvas.worldCamera == null)
+        {
+            canvas.worldCamera = Camera.main;
+            yield return null;
+        }
     }
 }

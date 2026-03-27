@@ -12,6 +12,7 @@ using TMPro;
 public class OrderCardUI : MonoBehaviour
 {
     public bool IsExpired { get; private set; }
+    public string RecipeName { get; private set; }
 
     private float totalTime;
     private float remainingTime;
@@ -34,6 +35,7 @@ public class OrderCardUI : MonoBehaviour
         var cardObj = new GameObject("OrderCard_" + recipeName);
         cardObj.transform.SetParent(parent, false);
         var card = cardObj.AddComponent<OrderCardUI>();
+        card.RecipeName = recipeName;
         card.totalTime = timeLimit;
         card.remainingTime = timeLimit;
 
